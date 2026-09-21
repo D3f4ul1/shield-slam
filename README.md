@@ -1,5 +1,5 @@
 <div align="center">
-<img src="assets/banner.svg" alt="Shield Slam" width="100%">
+<img src="assets/banner.png" alt="Shield Slam" width="100%">
 
 <br>
 

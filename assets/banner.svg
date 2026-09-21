@@ -9,49 +9,102 @@
       <stop offset="0%" stop-color="#3FBF3F" stop-opacity="0.22"/>
       <stop offset="100%" stop-color="#3FBF3F" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E8E8E8"/>
-      <stop offset="100%" stop-color="#8C8C8C"/>
+    <linearGradient id="plankA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5FD65F"/>
+      <stop offset="100%" stop-color="#2E8B2E"/>
     </linearGradient>
-    <linearGradient id="shieldFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3FBF3F"/>
-      <stop offset="100%" stop-color="#1F7A1F"/>
+    <linearGradient id="plankB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4CC24C"/>
+      <stop offset="100%" stop-color="#267326"/>
     </linearGradient>
+    <linearGradient id="boss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F2F2F2"/>
+      <stop offset="100%" stop-color="#9A9A9A"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8A5A32"/>
+      <stop offset="45%" stop-color="#A97445"/>
+      <stop offset="100%" stop-color="#6B4423"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EDEDED"/>
+      <stop offset="55%" stop-color="#C2C2C2"/>
+      <stop offset="100%" stop-color="#8A8A8A"/>
+    </linearGradient>
+    <clipPath id="shieldClip">
+      <path d="M14 0 H166 Q180 0 180 14 V116 Q180 168 97 206 Q14 168 14 116 V14 Q14 0 14 0 Z"/>
+    </clipPath>
   </defs>
 
   <rect width="1280" height="320" fill="url(#bg)"/>
-  <ellipse cx="200" cy="300" rx="420" ry="180" fill="url(#glow)"/>
+  <ellipse cx="190" cy="300" rx="430" ry="180" fill="url(#glow)"/>
   <rect x="0" y="0" width="1280" height="4" fill="#3FBF3F"/>
   <rect x="0" y="316" width="1280" height="4" fill="#1F7A1F"/>
 
-  <!-- shield, cracked -->
-  <g transform="translate(96,64)">
-    <path d="M96 8 L176 40 V120 C176 172 140 202 96 216 C52 202 16 172 16 120 V40 Z"
-          fill="url(#shieldFill)" stroke="#7FE07F" stroke-width="3"/>
-    <path d="M96 8 L176 40 V120 C176 172 140 202 96 216 Z" fill="#000000" opacity="0.14"/>
-    <!-- crack -->
-    <path d="M96 34 L84 92 L112 118 L88 168 L100 196"
-          fill="none" stroke="#0D140D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M96 34 L84 92 L112 118 L88 168 L100 196"
-          fill="none" stroke="#0A120A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ============ Minecraft shield, green ============ -->
+  <g transform="translate(92,52)">
+    <!-- silhouette -->
+    <path d="M14 0 H166 Q180 0 180 14 V116 Q180 168 97 206 Q14 168 14 116 V14 Q14 0 14 0 Z"
+          fill="#267326"/>
+    <g clip-path="url(#shieldClip)">
+      <!-- planks -->
+      <rect x="14" y="0" width="42" height="210" fill="url(#plankA)"/>
+      <rect x="56" y="0" width="41" height="210" fill="url(#plankB)"/>
+      <rect x="97" y="0" width="41" height="210" fill="url(#plankA)"/>
+      <rect x="138" y="0" width="42" height="210" fill="url(#plankB)"/>
+      <!-- plank seams -->
+      <g stroke="#1B5A1B" stroke-width="3" opacity="0.85">
+        <line x1="56" y1="0" x2="56" y2="210"/>
+        <line x1="97" y1="0" x2="97" y2="210"/>
+        <line x1="138" y1="0" x2="138" y2="210"/>
+      </g>
+      <!-- top/bottom shading, as the vanilla texture has -->
+      <rect x="14" y="0" width="166" height="16" fill="#0A120A" opacity="0.28"/>
+      <rect x="14" y="150" width="166" height="60" fill="#0A120A" opacity="0.22"/>
+    </g>
+    <!-- iron rim -->
+    <path d="M14 0 H166 Q180 0 180 14 V116 Q180 168 97 206 Q14 168 14 116 V14 Q14 0 14 0 Z"
+          fill="none" stroke="#1B5A1B" stroke-width="9"/>
+    <path d="M14 0 H166 Q180 0 180 14 V116 Q180 168 97 206 Q14 168 14 116 V14 Q14 0 14 0 Z"
+          fill="none" stroke="#7FE07F" stroke-width="3" opacity="0.75"/>
+    <!-- centre boss -->
+    <circle cx="97" cy="96" r="30" fill="url(#boss)" stroke="#6E6E6E" stroke-width="3"/>
+    <circle cx="97" cy="96" r="30" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="97" cy="96" r="9" fill="#7A7A7A" stroke="#5A5A5A" stroke-width="2"/>
+    <!-- crack: the whole point of the mod -->
+    <path d="M97 66 L82 104 L110 122 L86 158 L96 186"
+          fill="none" stroke="#0A120A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M97 66 L82 104 L110 122 L86 158 L96 186"
+          fill="none" stroke="#123D12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
-  <!-- mace -->
-  <g transform="translate(1108,74) rotate(18)">
-    <rect x="-9" y="34" width="18" height="150" rx="6" fill="#6B4A2B" stroke="#3E2A18" stroke-width="3"/>
-    <rect x="-13" y="18" width="26" height="24" rx="6" fill="url(#steel)" stroke="#5A5A5A" stroke-width="3"/>
-    <circle cx="0" cy="-16" r="42" fill="url(#steel)" stroke="#5A5A5A" stroke-width="3"/>
-    <circle cx="0" cy="-16" r="42" fill="#000" opacity="0.08"/>
-    <rect x="-52" y="-24" width="20" height="16" rx="5" fill="#D8D8D8" stroke="#5A5A5A" stroke-width="3"/>
-    <rect x="32" y="-24" width="20" height="16" rx="5" fill="#D8D8D8" stroke="#5A5A5A" stroke-width="3"/>
-    <rect x="-10" y="-68" width="20" height="18" rx="5" fill="#D8D8D8" stroke="#5A5A5A" stroke-width="3"/>
-    <rect x="-10" y="34" width="20" height="18" rx="5" fill="#D8D8D8" stroke="#5A5A5A" stroke-width="3"/>
+  <!-- ============ Minecraft axe ============ -->
+  <g transform="translate(1108,58)">
+    <!-- handle: diagonal, running bottom-left to top-right -->
+    <g transform="rotate(-22)">
+      <rect x="-11" y="26" width="22" height="184" rx="5" fill="url(#handle)" stroke="#3E2A18" stroke-width="3"/>
+      <rect x="-4" y="30" width="4" height="176" fill="#C08A55" opacity="0.5"/>
+      <rect x="-11" y="26" width="22" height="10" fill="#000000" opacity="0.18"/>
+    </g>
+    <!-- head -->
+    <g transform="rotate(-22)">
+      <path d="M-13 -34 H26 Q40 -34 40 -20 V6 Q40 20 26 20 H-13 Z"
+            fill="url(#blade)" stroke="#5A5A5A" stroke-width="3"/>
+      <!-- blade flare on the left -->
+      <path d="M-13 -34 Q-56 -30 -62 -7 Q-56 16 -13 20 Z"
+            fill="url(#blade)" stroke="#5A5A5A" stroke-width="3"/>
+      <!-- cutting edge highlight -->
+      <path d="M-56 -26 Q-60 -7 -56 12" fill="none" stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="3"/>
+      <!-- socket where the handle passes through -->
+      <rect x="2" y="-30" width="14" height="46" rx="3" fill="#6E6E6E" opacity="0.55"/>
+      <rect x="-8" y="-38" width="34" height="7" rx="3" fill="#FFFFFF" opacity="0.22"/>
+    </g>
   </g>
 
   <text x="360" y="152" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="76" font-weight="bold" fill="#FFFFFF" letter-spacing="2">SHIELD<tspan fill="#3FBF3F"> SLAM</tspan></text>
   <text x="364" y="196" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="21" fill="#9FBF9F" letter-spacing="1">Break the shield. Land the smash.</text>
 
-  <g font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="16" fill="#7FA07F">
+  <g font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="16">
     <rect x="362" y="222" width="196" height="34" rx="17" fill="#1A2A1A" stroke="#2F5F2F" stroke-width="2"/>
     <text x="460" y="244" text-anchor="middle" fill="#BFDFBF">Minecraft 1.21.11</text>
 

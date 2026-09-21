@@ -9,6 +9,12 @@ base {
 	archivesName = project.archives_base_name
 }
 
+// The jar people download is named without the version, so the release asset and
+// the filename in the README stay stable. Internal jars keep the version.
+tasks.named('remapJar') {
+	archiveFileName = "${project.archives_base_name}.jar"
+}
+
 repositories {
 	mavenCentral()
 }

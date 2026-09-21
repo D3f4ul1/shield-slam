@@ -3,6 +3,7 @@
 	"id": "stunslam",
 	"version": "${version}",
 	"name": "Shield Slam",
+	"icon": "assets/stunslam/icon.png",
 	"description": "Left-click PvP macro. An axe hit breaks a raised shield, then a falling mace smash exploits the opening. Also ships a standalone shield break for ground level. Fires on left-click and nothing else.",
 	"authors": [
 		"D3f4ul1"

@@ -1,0 +1,26 @@
+{
+	"schemaVersion": 1,
+	"id": "stunslam",
+	"version": "${version}",
+	"name": "Shield Slam",
+	"description": "Left-click PvP macro. An axe hit breaks a raised shield, then a falling mace smash exploits the opening. Also ships a standalone shield break for ground level. Fires on left-click and nothing else.",
+	"authors": [
+		"D3f4ul1"
+	],
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.stunslam.StunSlamClient"
+		]
+	},
+	"mixins": [
+		"stunslam.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
